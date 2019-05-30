@@ -1,0 +1,64 @@
+{
+  "commands": [
+    {
+      "name": "Source",
+      "type": "info",
+      "subtype": "string",
+      "logicalId": "source"
+    },
+    {
+      "name": "Titre",
+      "type": "info",
+      "subtype": "string",
+      "logicalId": "title"
+    },
+    {
+      "name": "Description",
+      "type": "info",
+      "subtype": "string",
+      "logicalId": "description"
+    },
+    {
+      "name": "URL",
+      "type": "info",
+      "subtype": "string",
+      "logicalId": "url"
+    },
+    {
+      "name": "URL Image",
+      "type": "info",
+      "subtype": "string",
+      "logicalId": "urlToImage"
+    },
+    {
+      "name": "Contenu",
+      "type": "info",
+      "subtype": "string",
+      "logicalId": "content"
+    },
+    {
+      "name": "Rafraichir",
+      "type": "action",
+      "subtype": "other",
+      "display": {
+        "generic_type": "DONT"
+      },
+      "configuration" : {
+        "switch" : "read"
+      },
+      "isVisible": 1,
+      "logicalId": "refresh"
+    },
+    {
+      "name": "Rafraichir avec options",
+      "type": "action",
+      "subtype": "message",
+      "display": {
+        "generic_type": "DONT",
+        "title_placeholder": "Message",
+        "message_disable" : 1
+      },
+      "logicalId": "options"
+    }
+  ]
+}

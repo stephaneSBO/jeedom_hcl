@@ -1,0 +1,13 @@
+{
+	"id" : "hcl",
+	"name" : "Human Centric Lighting",
+	"description" : "Ce plugin permet d'utiliser des lumières en mode Human Centric Lighting dans Jeedom. Pour cela elles doivent permettre de gérer la luminosité et les températures de blanc.",
+	"licence" : "AGPL",
+	"author" : "lunarok",
+	"require" : "3.2",
+	"category" : "confort",
+	"language" : ["fr_FR","en_US"],
+	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"],
+	"changelog" : "https://lunarok.github.io/jeedom_docs/plugins/hcl/changelog.html",
+	"documentation" : "https://lunarok.github.io/jeedom_docs/plugins/hcl/"
+}
