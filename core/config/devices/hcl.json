@@ -1,64 +1,153 @@
 {
   "commands": [
     {
-      "name": "Source",
+      "name": "Statut",
       "type": "info",
-      "subtype": "string",
-      "logicalId": "source"
+      "subtype": "binary",
+      "display": {
+        "generic_type": "LIGHT_STATUS"
+      },
+      "isVisible": 1,
+      "isHistorized": 0,
+      "logicalId": "status",
+      "template": {
+        "dashboard": "line",
+        "mobile": "line"
+      }
     },
     {
-      "name": "Titre",
-      "type": "info",
-      "subtype": "string",
-      "logicalId": "title"
+      "name": "Toggle",
+      "type": "action",
+      "subtype": "other",
+      "display": {
+        "icon": "<i class=\"fas fa-toggle-on\"><\/i>",
+        "generic_type": "LIGHT_TOGGLE"
+      },
+      "configuration" : {
+        "request" : "toggle"
+      },
+      "isVisible": 0,
+      "logicalId": "toggle"
     },
     {
-      "name": "Description",
-      "type": "info",
-      "subtype": "string",
-      "logicalId": "description"
+      "name": "Allumer",
+      "type": "action",
+      "subtype": "other",
+      "display": {
+        "icon": "<i class=\"fas fa-lightbulb-o\"><\/i>",
+        "generic_type": "LIGHT_ON"
+      },
+      "configuration" : {
+        "request" : "turn on"
+      },
+      "isVisible": 1,
+      "value": "Luminosité Info",
+      "logicalId": "on"
     },
     {
-      "name": "URL",
-      "type": "info",
-      "subtype": "string",
-      "logicalId": "url"
+      "name": "Eteindre",
+      "type": "action",
+      "subtype": "other",
+      "display": {
+        "icon": "<i class=\"fas fa-power-off\"><\/i>",
+        "generic_type": "LIGHT_OFF"
+      },
+      "configuration" : {
+        "request" : "turn off"
+      },
+      "isVisible": 1,
+      "value": "Luminosité Info",
+      "logicalId": "off"
     },
     {
-      "name": "URL Image",
-      "type": "info",
-      "subtype": "string",
-      "logicalId": "urlToImage"
+      "name": "Luminosité",
+      "type": "action",
+      "subtype": "slider",
+      "display": {
+        "generic_type": "LIGHT_SLIDER",
+        "forceReturnLineBefore": 1
+      },
+      "configuration" : {
+        "request" : "brightness",
+        "minValue" : 0,
+        "maxValue" : 100
+      },
+      "value": "Luminosité Info",
+      "isVisible": 1,
+      "logicalId": "brightnessAct"
     },
     {
-      "name": "Contenu",
+      "name": "Luminosité Info",
       "type": "info",
-      "subtype": "string",
-      "logicalId": "content"
+      "subtype": "numeric",
+      "display": {
+        "generic_type": "LIGHT_STATE"
+      },
+      "isVisible": 0,
+      "isHistorized": 0,
+      "logicalId": "brightness",
+      "template": {
+        "dashboard": "light",
+        "mobile": "light"
+      }
+    },
+    {
+      "name": "Température de blanc info",
+      "type": "info",
+      "subtype": "numeric",
+      "display": {
+        "generic_type": "DONT"
+      },
+      "isVisible": 0,
+      "isHistorized": 0,
+      "logicalId": "temperature",
+      "template": {
+        "dashboard": "line",
+        "mobile": "line"
+      }
+    },
+    {
+      "name": "Température de blanc",
+      "type": "action",
+      "subtype": "slider",
+      "display": {
+        "generic_type": "DONT"
+      },
+      "configuration" : {
+        "request" : "temperature",
+        "minValue" : 1700,
+        "maxValue" : 6500
+      },
+      "value": "Température de blanc info",
+      "isVisible": 1,
+      "logicalId": "temperatureAct"
+    },
+    {
+      "name": "Mode",
+      "type": "action",
+      "subtype": "select",
+      "display": {
+        "generic_type": "LIGHT_MODE"
+      },
+      "configuration" : {
+        "request" : "select",
+        "listValue" : "1|Relax;2|Calme;3|Neutre;7|Attentif;8|Concentration"
+      },
+      "isVisible": 1,
+      "logicalId": "selectMode"
     },
     {
       "name": "Rafraichir",
       "type": "action",
       "subtype": "other",
       "display": {
-        "generic_type": "DONT"
+        "icon": "<i class=\"fas fa-refresh\"><\/i>"
       },
       "configuration" : {
-        "switch" : "read"
+        "request" : "refresh"
       },
       "isVisible": 1,
       "logicalId": "refresh"
-    },
-    {
-      "name": "Rafraichir avec options",
-      "type": "action",
-      "subtype": "message",
-      "display": {
-        "generic_type": "DONT",
-        "title_placeholder": "Message",
-        "message_disable" : 1
-      },
-      "logicalId": "options"
     }
   ]
 }
