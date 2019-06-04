@@ -108,84 +108,9 @@ $eqLogics = eqLogic::byType('hcl');
             </div>
 
             <div class="form-group">
-							<label class="col-sm-3 control-label">{{Type}}</label>
-							<div class="col-sm-8">
-								<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="type" id="type">
-									<option value="top-headlines" selected>Gros Titres</option>
-									<option value="everything">Toutes News</option>
-								</select>
-							</div>
-						</div>
-
-            <div class="form-group">
-              <label class="col-sm-3 control-label">{{Numéro de la News à récupérer}}</label>
+              <label class="col-sm-3 control-label">{{Equipement référence}}</label>
               <div class="col-sm-8">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="number" placeholder="{{Exemple : 1 pour la plus récente, 2 pour la seconde ...}}"/>
-              </div>
-            </div>
-
-            <div class="form-group" id="country">
-              <label class="col-sm-3 control-label">{{Pays}}</label>
-              <div class="col-sm-8">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="country" placeholder="{{Le code international à 2 lettres du Pays}}"/>
-              </div>
-            </div>
-
-            <div class="form-group" id="language">
-              <label class="col-sm-3 control-label">{{Langue}}</label>
-              <div class="col-sm-8">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="languages" placeholder="{{Le code international à 2 lettres du Pays}}"/>
-              </div>
-            </div>
-
-            <div class="form-group" id="category">
-              <label class="col-sm-3 control-label">{{Catégorie}}</label>
-              <div class="col-sm-8">
-                <select class="form-control eqLogicAttr" data-l1key="configuration" data-l2key="category">
-                  <option value="none">{{Aucune}}</option>
-                  <option value="business">{{Business}}</option>
-                  <option value="entertainment">{{Divertissement}}</option>
-                  <option value="general">{{Générale}}</option>
-                  <option value="health">{{Santé}}</option>
-                  <option value="science">{{Science}}</option>
-                  <option value="sports">{{Sports}}</option>
-                  <option value="technology">{{Technologie}}</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group" id="sources">
-              <label class="col-sm-3 control-label">{{Sources}}</label>
-              <div class="col-sm-8">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="sources" placeholder="{{Voir la liste des Sources dans la doc}}"/>
-              </div>
-            </div>
-
-            <div class="form-group" id="keyword">
-              <label class="col-sm-3 control-label">{{Mot Clef}}</label>
-              <div class="col-sm-8">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="q" placeholder="{{Exemple : domotique}}"/>
-              </div>
-            </div>
-
-            <div class="form-group" id="domains">
-              <label class="col-sm-3 control-label">{{Domaines}}</label>
-              <div class="col-sm-8">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="domains" placeholder="{{Exemple : techcrunch.com}}"/>
-              </div>
-            </div>
-
-            <div class="form-group" id="excludeDomains">
-              <label class="col-sm-3 control-label">{{Domaines Exclus}}</label>
-              <div class="col-sm-8">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="excludeDomains" placeholder="{{Exemple : techcrunch.com}}"/>
-              </div>
-            </div>
-
-            <div class="form-group" id="sortBy">
-              <label class="col-sm-3 control-label">{{Classement Par}}</label>
-              <div class="col-sm-8">
-                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="sortBy" placeholder="{{Exemple : relevancy, popularity, publishedAt}}"/>
+                <input type="text" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="eqLogic"/>
               </div>
             </div>
 

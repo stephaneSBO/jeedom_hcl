@@ -96,7 +96,7 @@
       "type": "info",
       "subtype": "numeric",
       "display": {
-        "generic_type": "DONT"
+        "generic_type": "LIGHT_COLOR_TEMP"
       },
       "isVisible": 0,
       "isHistorized": 0,
@@ -111,7 +111,7 @@
       "type": "action",
       "subtype": "slider",
       "display": {
-        "generic_type": "DONT"
+        "generic_type": "LIGHT_SET_COLOR_TEMP"
       },
       "configuration" : {
         "request" : "temperature",
@@ -131,7 +131,7 @@
       },
       "configuration" : {
         "request" : "select",
-        "listValue" : "1|Relax;2|Calme;3|Neutre;7|Attentif;8|Concentration"
+        "listValue" : "1|Relax;2|Calme;3|Neutre;4|Attentif;5|Concentration;6|Naturel"
       },
       "isVisible": 1,
       "logicalId": "selectMode"
