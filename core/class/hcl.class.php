@@ -63,7 +63,6 @@ class hclCmd extends cmd {
 		if ($this->getLogicalId() == 'refresh') {
 			$eqLogic = eqLogic::byId($id);
 			$cmd = cmd::byEqLogicIdAndLogicalId($id,'refresh');
-			$cmd->execCmd($_options);
 		} else if ($this->getLogicalId() == 'LIGHT_MODE') {
 			$eqLogic = eqLogic::byId($id);
 			$cmd = cmd::byEqLogicIdAndGenericType($id,'LIGHT_SLIDER');
@@ -88,11 +87,10 @@ class hclCmd extends cmd {
 					$_options['slider'] = 6000;
 					break;
 			}
-			$cmd->execCmd($_options);
 		} else {
 			$cmd = cmd::byEqLogicIdAndGenericType($id,$this->getLogicalId());
-			$cmd->execCmd($_options);
 		}
+		if (is_object($cmd)) {$cmd->execCmd($_options);}
 	}
 }
 ?>
