@@ -59,7 +59,7 @@ class hcl extends eqLogic {
 
 class hclCmd extends cmd {
 	public function execute($_options = null) {
-		$id = str_replace("#", "", str_replace("eqLogic", "", $this->getConfiguration('eqLogic')));
+		$id = str_replace("#", "", str_replace("eqLogic", "", $this->getEqLogic()->getConfiguration('eqLogic')));
 		if ($this->getLogicalId() == 'refresh') {
 			$eqLogic = eqLogic::byId($id);
 			$cmd = cmd::byEqLogicIdAndLogicalId($id,'refresh');

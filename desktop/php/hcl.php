@@ -50,6 +50,7 @@ $eqLogics = eqLogic::byType('hcl');
     <a class="btn btn-success eqLogicAction pull-right" data-action="save"><i class="fas fa-check-circle"></i> {{Sauvegarder}}</a>
     <a class="btn btn-danger eqLogicAction pull-right" data-action="remove"><i class="fas fa-minus-circle"></i> {{Supprimer}}</a>
     <a class="btn btn-default eqLogicAction pull-right" data-action="configure"><i class="fas fa-cogs"></i> {{Configuration avancée}}</a>
+    <a class="btn btn-default eqLogicAction pull-right" data-action="copy"><i class="fas fa-files-o"></i> {{Dupliquer}}</a>
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation"><a href="#" class="eqLogicAction" aria-controls="home" role="tab" data-toggle="tab" data-action="returnToThumbnailDisplay"><i class="fas fa-arrow-circle-left"></i></a></li>
       <li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i class="fas fa-tachometer"></i> {{Equipement}}</a></li>
@@ -103,10 +104,10 @@ $eqLogics = eqLogic::byType('hcl');
             <div class="form-group">
               <label class="col-sm-3 control-label">{{Equipement à utiliser}}</label>
               <div class="col-sm-8">
-                  <input type="text"  class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="eqLogic" />
-                  <span class="input-group-btn">
-                    <a class="btn btn-default cursor" title="Rechercher un équipement" id="bt_selectEqlogic"><i class="fas fa-list-alt"></i></a>
-                  </span>
+                <input type="text"  class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="eqLogic" />
+                <span class="input-group-btn">
+                  <a class="btn btn-default cursor" title="Rechercher un équipement" id="bt_selectEqlogic"><i class="fas fa-list-alt"></i></a>
+                </span>
               </div>
             </div>
 
