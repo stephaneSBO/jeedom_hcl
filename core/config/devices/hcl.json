@@ -7,9 +7,9 @@
       "display": {
         "generic_type": "LIGHT_STATUS"
       },
-      "isVisible": 1,
+      "isVisible": 0,
       "isHistorized": 0,
-      "logicalId": "status",
+      "logicalId": "LIGHT_STATUS",
       "template": {
         "dashboard": "line",
         "mobile": "line"
@@ -24,7 +24,7 @@
       },
       "isVisible": 0,
       "isHistorized": 0,
-      "logicalId": "brightness",
+      "logicalId": "LIGHT_STATE",
       "template": {
         "dashboard": "light",
         "mobile": "light"
@@ -38,11 +38,8 @@
         "icon": "<i class=\"fas fa-toggle-on\"><\/i>",
         "generic_type": "LIGHT_TOGGLE"
       },
-      "configuration" : {
-        "request" : "toggle"
-      },
       "isVisible": 0,
-      "logicalId": "toggle"
+      "logicalId": "LIGHT_TOGGLE"
     },
     {
       "name": "Allumer",
@@ -52,12 +49,9 @@
         "icon": "<i class=\"fas fa-lightbulb\"><\/i>",
         "generic_type": "LIGHT_ON"
       },
-      "configuration" : {
-        "request" : "turn on"
-      },
       "isVisible": 1,
       "value": "Luminosité Info",
-      "logicalId": "on"
+      "logicalId": "LIGHT_ON"
     },
     {
       "name": "Eteindre",
@@ -67,12 +61,9 @@
         "icon": "<i class=\"fas fa-power-off\"><\/i>",
         "generic_type": "LIGHT_OFF"
       },
-      "configuration" : {
-        "request" : "turn off"
-      },
       "isVisible": 1,
       "value": "Luminosité Info",
-      "logicalId": "off"
+      "logicalId": "LIGHT_OFF"
     },
     {
       "name": "Luminosité",
@@ -83,13 +74,12 @@
         "forceReturnLineBefore": 1
       },
       "configuration" : {
-        "request" : "brightness",
         "minValue" : 0,
         "maxValue" : 100
       },
       "value": "Luminosité Info",
       "isVisible": 1,
-      "logicalId": "brightnessAct"
+      "logicalId": "LIGHT_SLIDER"
     },
     {
       "name": "Température de blanc info",
@@ -100,7 +90,7 @@
       },
       "isVisible": 0,
       "isHistorized": 0,
-      "logicalId": "temperature",
+      "logicalId": "LIGHT_COLOR_TEMP",
       "template": {
         "dashboard": "line",
         "mobile": "line"
@@ -114,13 +104,12 @@
         "generic_type": "LIGHT_SET_COLOR_TEMP"
       },
       "configuration" : {
-        "request" : "temperature",
         "minValue" : 1700,
         "maxValue" : 6500
       },
       "value": "Température de blanc info",
       "isVisible": 1,
-      "logicalId": "temperatureAct"
+      "logicalId": "LIGHT_SET_COLOR_TEMP"
     },
     {
       "name": "Mode",
@@ -134,7 +123,7 @@
         "listValue" : "1|Relax;2|Calme;3|Neutre;4|Attentif;5|Concentration;6|Naturel"
       },
       "isVisible": 1,
-      "logicalId": "selectMode"
+      "logicalId": "LIGHT_MODE"
     },
     {
       "name": "Rafraichir",

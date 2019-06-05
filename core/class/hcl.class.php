@@ -59,19 +59,38 @@ class hcl extends eqLogic {
 
 class hclCmd extends cmd {
 	public function execute($_options = null) {
-		$eqLogic = eqLogic::byLogicalId($this->getConfiguration('eqLogic'));
+		$id = str_replace("#", "", str_replace("eqLogic", "", $this->getConfiguration('eqLogic')));
 		if ($this->getLogicalId() == 'refresh') {
+			$eqLogic = eqLogic::byId($id);
 			$eqLogic->refresh();
-		}
-		if ($this->getLogicalId() == 'options') {
-			if (isset($_options['title'])) {
-				$options1 = $eqLogic->getOptions();
-				$options2 = arg2array($_options['title']);
-				$options = array_merge($options1, $options2);
-			} else {
-				return false;
+		} else if ($this->getLogicalId() == 'LIGHT_MODE') {
+			$eqLogic = eqLogic::byId($id);
+			$cmd = cmd::byGenericType('LIGHT_SLIDER',$id);
+			switch ($_options['select']) {
+				case '1':
+					$_options['slider'] = 2500;
+					break;
+				case '2':
+					$_options['slider'] = 3700;
+					break;
+				case '3':
+					$_options['slider'] = 5000;
+					break;
+				case '4':
+					$_options['slider'] = 5700;
+					break;
+				case '5':
+					$_options['slider'] = 6500;
+					break;
+				case '6':
+				//a modifier
+					$_options['slider'] = 6000;
+					break;
 			}
-			$eqLogic->getInfos($options);
+			$cmd->execCmd($_options);
+		} else {
+			$cmd = cmd::byGenericType($this->getLogicalId(),$id);
+			$cmd->execCmd($_options);
 		}
 	}
 }
