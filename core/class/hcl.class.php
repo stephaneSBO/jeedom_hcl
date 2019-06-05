@@ -62,10 +62,11 @@ class hclCmd extends cmd {
 		$id = str_replace("#", "", str_replace("eqLogic", "", $this->getConfiguration('eqLogic')));
 		if ($this->getLogicalId() == 'refresh') {
 			$eqLogic = eqLogic::byId($id);
-			$eqLogic->refresh();
+			$cmd = cmd::byEqLogicIdAndLogicalId($id,'refresh');
+			$cmd->execCmd($_options);
 		} else if ($this->getLogicalId() == 'LIGHT_MODE') {
 			$eqLogic = eqLogic::byId($id);
-			$cmd = cmd::byGenericType('LIGHT_SLIDER',$id);
+			$cmd = cmd::byEqLogicIdAndGenericType($id,'LIGHT_SLIDER');
 			switch ($_options['select']) {
 				case '1':
 					$_options['slider'] = 2500;
@@ -89,7 +90,7 @@ class hclCmd extends cmd {
 			}
 			$cmd->execCmd($_options);
 		} else {
-			$cmd = cmd::byGenericType($this->getLogicalId(),$id);
+			$cmd = cmd::byEqLogicIdAndGenericType($id,$this->getLogicalId());
 			$cmd->execCmd($_options);
 		}
 	}
