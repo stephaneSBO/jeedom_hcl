@@ -15,7 +15,7 @@
 */
 
 $('#bt_selectEqlogic').on('click', function () {
-  jeedom.cmd.getSelectModal(}, function (result) {
+  jeedom.eqLogic.getSelectModal(}, function (result) {
     $('.eqLogicAttr[data-l2key=eqLogic]').atCaret('insert', result.human);
   });
 });
