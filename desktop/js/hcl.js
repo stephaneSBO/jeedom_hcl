@@ -20,6 +20,11 @@ $('#bt_selectEqlogic').on('click', function () {
   });
 });
 
+$('#bt_selectLightCmd').on('click', function () {
+    jeedom.cmd.getSelectModal({cmd: {type: 'info', subType: 'numeric'}}, function (result) {
+        $('.eqLogicAttr[data-l2key=light]').atCaret('insert', result.human);
+    });
+});
 
 function addCmdToTable(_cmd) {
   if (!isset(_cmd)) {

@@ -81,21 +81,10 @@ $eqLogics = eqLogic::byType('hcl');
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-3 control-label">{{Catégorie}}</label>
-              <div class="col-sm-8">
-                <?php
-                foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
-                  echo '<label class="checkbox-inline">';
-                  echo '<input type="checkbox" class="eqLogicAttr" data-l1key="category" data-l2key="' . $key . '" />' . $value['name'];
-                  echo '</label>';
-                }
-                ?>
 
-              </div>
-            </div>
             <div class="form-group">
               <label class="col-sm-3 control-label" ></label>
-              <div class="col-sm-8">
+              <div class="col-sm-3">
                 <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked/>{{Activer}}</label>
                 <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked/>{{Visible}}</label>
               </div>
@@ -103,10 +92,20 @@ $eqLogics = eqLogic::byType('hcl');
 
             <div class="form-group">
               <label class="col-sm-3 control-label">{{Equipement à utiliser}}</label>
-              <div class="col-sm-8">
+              <div class="col-sm-3">
                 <input type="text"  class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="eqLogic" />
                 <span class="input-group-btn">
                   <a class="btn btn-default cursor" title="Rechercher un équipement" id="bt_selectEqlogic"><i class="fas fa-list-alt"></i></a>
+                </span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{Luminosité à utiliser}}</label>
+              <div class="col-sm-3">
+                <input type="text"  class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="light" />
+                <span class="input-group-btn">
+                  <a class="btn btn-default cursor" title="Rechercher une commande" id="bt_selectLightCmd"><i class="fas fa-list-alt"></i></a>
                 </span>
               </div>
             </div>
