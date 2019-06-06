@@ -52,7 +52,14 @@ class hcl extends eqLogic {
 	}
 
 	public function postAjax() {
-		$this->loadCmdFromConf('hcl');
+		$this->setCategory('light',1);
+		$id = str_replace("#", "", str_replace("eqLogic", "", $this->getEqLogic()->getConfiguration('eqLogic')));
+		$cmd = cmd::byEqLogicIdAndGenericType($id,'LIGHT_SET_COLOR');
+		if (is_object($cmd)) {
+			$this->loadCmdFromConf('rgb');
+		} else {
+			$this->loadCmdFromConf('hcl');
+		}
 	}
 
 }
@@ -68,24 +75,24 @@ class hclCmd extends cmd {
 			$cmd = cmd::byEqLogicIdAndGenericType($id,'LIGHT_SLIDER');
 			switch ($_options['select']) {
 				case '1':
-					$_options['slider'] = 2500;
-					break;
+				$_options['slider'] = 2500;
+				break;
 				case '2':
-					$_options['slider'] = 3700;
-					break;
+				$_options['slider'] = 3700;
+				break;
 				case '3':
-					$_options['slider'] = 5000;
-					break;
+				$_options['slider'] = 5000;
+				break;
 				case '4':
-					$_options['slider'] = 5700;
-					break;
+				$_options['slider'] = 5700;
+				break;
 				case '5':
-					$_options['slider'] = 6500;
-					break;
+				$_options['slider'] = 6500;
+				break;
 				case '6':
 				//a modifier
-					$_options['slider'] = 6000;
-					break;
+				$_options['slider'] = 6000;
+				break;
 			}
 		} else {
 			$cmd = cmd::byEqLogicIdAndGenericType($id,$this->getLogicalId());
