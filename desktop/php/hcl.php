@@ -104,7 +104,7 @@ $eqLogics = eqLogic::byType('hcl');
             <div class="form-group">
               <label class="col-sm-3 control-label">{{Equipement à utiliser}}</label>
               <div class="col-sm-8">
-                <input type="text"  class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="eqLogic" />
+                <input type="text"  class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="eqLogic" />
                 <span class="input-group-btn">
                   <a class="btn btn-default cursor" title="Rechercher un équipement" id="bt_selectEqlogic"><i class="fas fa-list-alt"></i></a>
                 </span>

@@ -1,5 +1,6 @@
-mapping équipement
+mapping équipement->modal gsh
 validation équipement
-mapping on/off/toggle/slider/status/luminosité/température/température info sur les commandes réelles
-mapping des modes
+mapping des modes->passage en variables ? + flow
 prise en compte des conditions temps réel dans les commandes
+-Luminosité
+-moment de la journée
