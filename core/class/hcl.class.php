@@ -53,7 +53,7 @@ class hcl extends eqLogic {
 
 	public function postAjax() {
 		$this->setCategory('light',1);
-		$id = str_replace("#", "", str_replace("eqLogic", "", $this->getEqLogic()->getConfiguration('eqLogic')));
+		$id = str_replace("#", "", str_replace("eqLogic", "", $this->getConfiguration('eqLogic')));
 		$cmd = cmd::byEqLogicIdAndGenericType($id,'LIGHT_SET_COLOR');
 		if (is_object($cmd)) {
 			$this->loadCmdFromConf('rgb');
