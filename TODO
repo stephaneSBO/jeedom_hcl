@@ -1,6 +1,13 @@
 mapping équipement->modal gsh
-validation équipement
-mapping des modes->passage en variables ? + flow
-prise en compte des conditions temps réel dans les commandes
--Luminosité
--moment de la journée
+
+modes :
+variabiliser les couleurs en conf equipement
+variabiliser la Luminosité
+prendre en compte la Luminosité
+mode 6 pour les flow en yeelight
+
+valider que l'équipement est correct à la sauvegarde
+
+prise en compte de la Luminosité pour allumer (voir pour une luminosité variable dans la journée)
+
+prise en compte du moment de la journée pour la température et Luminosité
