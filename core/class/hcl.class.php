@@ -53,26 +53,16 @@ class hcl extends eqLogic {
 
 	public function postAjax() {
 		$this->setCategory('light',1);
-		$id = str_replace("#", "", str_replace("eqLogic", "", $this->getConfiguration('eqLogic')));
-		$cmd = cmd::byEqLogicIdAndGenericType($id,'LIGHT_SET_COLOR');
-		if (is_object($cmd)) {
-			$this->loadCmdFromConf('rgb');
-		} else {
-			$this->loadCmdFromConf('hcl');
-		}
+		$this->loadCmdFromConf($this->getConfiguration('type'));
 	}
 
 }
 
 class hclCmd extends cmd {
 	public function execute($_options = null) {
-		$id = str_replace("#", "", str_replace("eqLogic", "", $this->getEqLogic()->getConfiguration('eqLogic')));
-		if ($this->getLogicalId() == 'refresh') {
-			$eqLogic = eqLogic::byId($id);
-			$cmd = cmd::byEqLogicIdAndLogicalId($id,'refresh');
-		} else if ($this->getLogicalId() == 'LIGHT_MODE') {
-			$eqLogic = eqLogic::byId($id);
-			$cmd = cmd::byEqLogicIdAndGenericType($id,'LIGHT_SLIDER');
+		$type = $this->getLogicalId();
+		if ($type == 'LIGHT_MODE') {
+			$type == 'LIGHT_SLIDER';
 			switch ($_options['select']) {
 				case '1':
 				$_options['slider'] = 2500;
@@ -94,8 +84,24 @@ class hclCmd extends cmd {
 				$_options['slider'] = 6000;
 				break;
 			}
+		}
+		if (strpos($this->getEqLogic()->getConfiguration('eqLogic'), '&&')) {
+			foreach (explode('&&', $this->getEqLogic()->getConfiguration('eqLogic')) as $id) {
+				$this->triggerLight($id,$_options);
+			}
 		} else {
-			$cmd = cmd::byEqLogicIdAndGenericType($id,$this->getLogicalId());
+			$this->triggerLight($this->getEqLogic()->getConfiguration('eqLogic'),$_options);
+		}
+	}
+
+	public function triggerLight($_id, $_options = null) {
+		$id = str_replace("#", "", str_replace("eqLogic", "", $_id));
+		$eqLogic = eqLogic::byId($id);
+		if (!is_object($eqLogic)) {return ;}
+		if ($type == 'refresh') {
+			$cmd = cmd::byEqLogicIdAndLogicalId($id,'refresh');
+		} else {
+			$cmd = cmd::byEqLogicIdAndGenericType($id,$type);
 		}
 		if (is_object($cmd)) {$cmd->execCmd($_options);}
 	}

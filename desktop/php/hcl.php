@@ -80,7 +80,6 @@ $eqLogics = eqLogic::byType('hcl');
                 </select>
               </div>
             </div>
-            <div class="form-group">
 
             <div class="form-group">
               <label class="col-sm-3 control-label" ></label>
@@ -91,7 +90,17 @@ $eqLogics = eqLogic::byType('hcl');
             </div>
 
             <div class="form-group">
-              <label class="col-sm-3 control-label">{{Equipement à utiliser}}</label>
+              <label class="col-sm-3 control-label" >{{Type de lampe}}</label>
+              <div class="col-sm-3">
+                <select class="form-control eqLogicAttr" data-l1key="configuration" data-l2key="type">
+                  <option value="hcl">{{Blanc}}</option>
+                  <option value="rgb">{{Couleur}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">{{Equipement(s) à utiliser}}</label>
               <div class="col-sm-3">
                 <input type="text"  class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="eqLogic" />
                 <span class="input-group-btn">
@@ -101,7 +110,7 @@ $eqLogics = eqLogic::byType('hcl');
             </div>
 
             <div class="form-group">
-              <label class="col-sm-3 control-label">{{Luminosité à utiliser}}</label>
+              <label class="col-sm-3 control-label">{{Luminosité ambiante à utiliser}}</label>
               <div class="col-sm-3">
                 <input type="text"  class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="light" />
                 <span class="input-group-btn">
