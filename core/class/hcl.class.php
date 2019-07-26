@@ -88,22 +88,22 @@ class hclCmd extends cmd {
 		if (strpos($this->getEqLogic()->getConfiguration('eqLogic'), '&&')) {
 			log::add('hcl', 'info', 'Multiples eqLogic');
 			foreach (explode('&&', $this->getEqLogic()->getConfiguration('eqLogic')) as $id) {
-				$this->triggerLight($id,$_options);
+				$this->triggerLight($id,$type,$_options);
 			}
 		} else {
-			$this->triggerLight($this->getEqLogic()->getConfiguration('eqLogic'),$_options);
+			$this->triggerLight($this->getEqLogic()->getConfiguration('eqLogic'),$type,$_options);
 		}
 	}
 
-	public function triggerLight($_id, $_options = null) {
+	public function triggerLight($_id, $_type, $_options = null) {
 		$id = str_replace("#", "", str_replace("eqLogic", "", $_id));
 		log::add('hcl', 'info', 'Lancement commande sur eqLogic : ' . $id);
 		$eqLogic = eqLogic::byId($id);
 		if (!is_object($eqLogic)) {return ;}
-		if ($type == 'refresh') {
+		if ($_type == 'refresh') {
 			$cmd = cmd::byEqLogicIdAndLogicalId($id,'refresh');
 		} else {
-			$cmd = cmd::byEqLogicIdAndGenericType($id,$type);
+			$cmd = cmd::byEqLogicIdAndGenericType($id,$_type);
 		}
 		if (is_object($cmd)) {$cmd->execCmd($_options);}
 	}
