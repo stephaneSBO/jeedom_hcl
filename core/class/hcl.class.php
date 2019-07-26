@@ -86,6 +86,7 @@ class hclCmd extends cmd {
 			}
 		}
 		if (strpos($this->getEqLogic()->getConfiguration('eqLogic'), '&&')) {
+			log::add('hcl', 'info', 'Multiples eqLogic');
 			foreach (explode('&&', $this->getEqLogic()->getConfiguration('eqLogic')) as $id) {
 				$this->triggerLight($id,$_options);
 			}
@@ -96,6 +97,7 @@ class hclCmd extends cmd {
 
 	public function triggerLight($_id, $_options = null) {
 		$id = str_replace("#", "", str_replace("eqLogic", "", $_id));
+		log::add('hcl', 'info', 'Lancement commande sur eqLogic : ' . $id);
 		$eqLogic = eqLogic::byId($id);
 		if (!is_object($eqLogic)) {return ;}
 		if ($type == 'refresh') {
