@@ -61,6 +61,9 @@ class hcl extends eqLogic {
 class hclCmd extends cmd {
 	public function execute($_options = null) {
 		$type = $this->getLogicalId();
+		//manage special ON/OFF that power on the lamp whatever light sensor or restriction
+
+		//manage a command send for a defined "ambiance"
 		if ($type == 'LIGHT_MODE') {
 			$type == 'LIGHT_SLIDER';
 			switch ($_options['select']) {
