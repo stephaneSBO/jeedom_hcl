@@ -59,6 +59,27 @@ class hcl extends eqLogic {
 }
 
 class hclCmd extends cmd {
+
+	public function postSave() {
+		if ($this->getType() == 'info') {
+			$this->event($this->execute());
+		}
+	}
+
+	public function preSave() {
+		if ($this->getType() == "info") {
+			if (strpos($this->getEqLogic()->getConfiguration('eqLogic'), '&&')) {
+				$ids = explode('&&', $this->getEqLogic()->getConfiguration('eqLogic'));
+				$id = $ids[0];
+			} else {
+				$id = $this->getEqLogic()->getConfiguration('eqLogic');
+			}
+			$id = str_replace("#", "", str_replace("eqLogic", "", $id));
+			$cmd = cmd::byEqLogicIdAndGenericType($id, $this->getLogicalId());
+			if (is_object($cmd)) {$this->setValue('#' . $cmd->getId() . '#');}
+		}
+	}
+
 	public function execute($_options = null) {
 		if ($this->getType() == "info") {
 			if (strpos($this->getEqLogic()->getConfiguration('eqLogic'), '&&')) {
