@@ -60,49 +60,61 @@ class hcl extends eqLogic {
 
 class hclCmd extends cmd {
 	public function execute($_options = null) {
-		$type = $this->getLogicalId();
-		//manage special ON/OFF that power on the lamp whatever light sensor or restriction
-
-		//manage a command send for a defined "ambiance"
-		if ($type == 'LIGHT_MODE') {
-			$type == 'LIGHT_SLIDER';
-			switch ($_options['select']) {
-				case '1':
-				$_options['slider'] = 2500;
-				break;
-				case '2':
-				$_options['slider'] = 3700;
-				break;
-				case '3':
-				$_options['slider'] = 5000;
-				break;
-				case '4':
-				$_options['slider'] = 5700;
-				break;
-				case '5':
-				$_options['slider'] = 6500;
-				break;
-				case '6':
-				//a modifier
-				$_options['slider'] = 6000;
-				break;
+		if ($this->getType() == "info") {
+			if (strpos($this->getEqLogic()->getConfiguration('eqLogic'), '&&')) {
+				$ids = explode('&&', $this->getEqLogic()->getConfiguration('eqLogic'));
+				$id = $ids[0];
+			} else {
+				$id = $this->getEqLogic()->getConfiguration('eqLogic');
 			}
-		}
-		if (strpos($this->getEqLogic()->getConfiguration('eqLogic'), '&&')) {
-			log::add('hcl', 'info', 'Multiples eqLogic');
-			foreach (explode('&&', $this->getEqLogic()->getConfiguration('eqLogic')) as $id) {
-				$this->triggerLight($id,$type,$_options);
-			}
+			$id = str_replace("#", "", str_replace("eqLogic", "", $id));
+			$cmd = cmd::byEqLogicIdAndGenericType($id, $this->getLogicalId());
+			if (is_object($cmd)) {return $cmd->execCmd();}
 		} else {
-			$this->triggerLight($this->getEqLogic()->getConfiguration('eqLogic'),$type,$_options);
+			$type = $this->getLogicalId();
+			//manage special ON/OFF that power on the lamp whatever light sensor or restriction
+
+			//manage a command send for a defined "ambiance"
+			if ($type == 'LIGHT_MODE') {
+				$type == 'LIGHT_SLIDER';
+				switch ($_options['select']) {
+					case '1':
+					$_options['slider'] = 2500;
+					break;
+					case '2':
+					$_options['slider'] = 3700;
+					break;
+					case '3':
+					$_options['slider'] = 5000;
+					break;
+					case '4':
+					$_options['slider'] = 5700;
+					break;
+					case '5':
+					$_options['slider'] = 6500;
+					break;
+					case '6':
+					//a modifier
+					$_options['slider'] = 6000;
+					break;
+				}
+			}
+			if (strpos($this->getEqLogic()->getConfiguration('eqLogic'), '&&')) {
+				log::add('hcl', 'info', 'Multiples eqLogic');
+				foreach (explode('&&', $this->getEqLogic()->getConfiguration('eqLogic')) as $id) {
+					$this->triggerLight($id,$type,$_options);
+				}
+			} else {
+				$this->triggerLight($this->getEqLogic()->getConfiguration('eqLogic'),$type,$_options);
+			}
 		}
 	}
 
 	public function triggerLight($_id, $_type, $_options = null) {
 		$id = str_replace("#", "", str_replace("eqLogic", "", $_id));
 		log::add('hcl', 'info', 'Lancement commande sur eqLogic : ' . $id);
-		$eqLogic = eqLogic::byId($id);
-		if (!is_object($eqLogic)) {return ;}
+		//$eqLogic = eqLogic::byId($id);
+		//if (!is_object($eqLogic)) {return ;}
 		if ($_type == 'refresh') {
 			$cmd = cmd::byEqLogicIdAndLogicalId($id,'refresh');
 		} else {
