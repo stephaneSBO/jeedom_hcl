@@ -17,3 +17,9 @@ Options générales et sur équipement :
 - temp/luminosité min/max pour Circadian Lighting
 
 Détecteur de mouvement par équipement -> setter un listener
+
+Gestion des munuteries
+- possibilité de paramétrer le temps de chaque minuterie
+- possibilité de plusieurs déclencheurs
+- relance de la durée de la minuterie lors de l'activation d'un declencheur
+
